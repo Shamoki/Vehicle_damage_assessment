@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <!-- Styles same as in the login.html -->
+    <style>
+        /* Reset styles */
+        body, h1, h2, h3, p, ol, ul, li, form, label {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #666666;
+        }
+
+        a {
+            color: #FF5723;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #1777B1;
+        }
+
+        /* Header styles */
+        #header {
+            background-color: #A4C0C8;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        #header h1, #header h2 {
+            color: #3F586B;
+        }
+
+        #header h1 {
+            font-size: 2em;
+        }
+
+        #header h2 {
+            font-size: 1.2em;
+        }
+
+        /* Menu styles */
+        #menu {
+            background-color:  #A4C0C8;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #menu ul {
+            list-style: none;
+        }
+
+        #menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        #menu a {
+            color: #610720;
+            font-weight: bold;
+            font-size: larger;
+        }
+
+        #menu a:hover {
+            text-decoration: underline;
+        }
+		#menu .active a {
+	color: #FFFFFF;
+}
+		
+
+        .container {
+            max-width: 800px; /* Adjusted for the menu width */
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+        }
+
+        .login-form {
+            width: 400px; /* Adjusted width for form */
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px; /* Increased margin-bottom for spacing */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            margin-right: 5px; /* Adjusted spacing */
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #4cae4c;
+        }
+
+        /* Footer */
+        #footer {
+            background-color: #5F919E;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>VEHICLE DAMAGE ESTIMATOR</h1>
+        <h2>Cost Estimator</h2>
+    </div>
+    <div id="menu">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/accounts/login">Log in</a></li>
+            <li class="active"><a href="/register">Not registered? Sign up</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="login-form"> 
+            <form name="form2" method="post" action="/register/"> 
+                {% csrf_token %}
+                {{ form.as_p }} <!-- Render the form fields -->
+                {% if form.errors %} <!-- Display form errors if they exist -->
+                    <p style="color: red;">Please correct the errors below:</p>
+                    {{ form.non_field_errors }}
+                    {{ form.errors }}
+                {% endif %}
+                <div>
+                    <input type="submit" value="Register">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        <p>&copy; 2023 Vehicle Damage Estimator</p>
+    </div>
+</body>
+</html>

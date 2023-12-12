@@ -1,0 +1,54 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Assessment Result{% endblock %}
+
+{% block content %}
+<div class="content-section">
+    <h1>Vehicle Damage Assessment Result</h1>
+    <!-- A conditional statement to check if any result data is available -->
+    {% if result %}
+        <div class="result-details">
+            <h2>Assessment Details:</h2>
+            <p><strong>Assessment ID:</strong> {{ result.assessment_id }}</p>
+            <p><strong>Date of Submission:</strong> {{ result.submission_date }}</p>
+            <p><strong>Vehicle Information:</strong> {{ result.vehicle_info }}</p>
+
+            <!-- If there are images, display them -->
+            {% if result.images %}
+                <h3>Images Submitted:</h3>
+                <div>
+                {% for image in result.images %}
+                    <img src="{{ image.url }}" alt="Vehicle Image" class="vehicle-image"/>
+                {% endfor %}
+                </div>
+            {% endif %}
+            
+            <!-- Display the assessment findings -->
+            <h3>Assessment Findings:</h3>
+            <p>{{ result.findings }}</p>
+            
+            <!-- Display the estimated repair costs -->
+            <h3>Estimated Repair Costs:</h3>
+            <p>{{ result.estimated_costs }}</p>
+            
+            <!-- If there are recommendations, display them -->
+            {% if result.recommendations %}
+                <h3>Recommendations:</h3>
+                <p>{{ result.recommendations }}</p>
+            {% endif %}
+            
+            <!-- View Report link -->
+            <div class="view-report">
+                <a href="{% url 'test_report' result.assessment_id %}" class="btn btn-info">View Full Report</a>
+            </div>
+        </div>
+        
+        <!-- Provide an option for the user to download the result as a PDF -->
+        <div class="download-section">
+            <a href="{% url 'result-pdf' result.assessment_id %}" class="btn btn-primary">Download Result as PDF</a>
+        </div>
+    {% else %}
+        <p>We're sorry, we couldn't process your submission at this time. Please try again later.</p>
+    {% endif %}
+</div>
+{% endblock %}

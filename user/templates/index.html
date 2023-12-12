@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Damage Assessment & Cost Estimator - Login</title>
+    <style>
+    
+    body {
+            
+
+            margin: 0;
+            padding: 0;
+            
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 13px;
+            background-color: #222222;
+            color: #ffffff;
+        }
+        .form-group {
+            margin-bottom: 20px;  /* Adds space below each form group */
+        }
+        
+        /* Optional: if you want a line separator */
+        .separator {
+            height: 1px;
+            background-color: #ddd; 
+            margin: 20px 0;  /* Adds 20px of space above and below the separator */
+        }
+        
+        h1, h2, h3 {
+            margin: 0;
+            font-weight: normal;
+            color: #ffffff;
+        }
+        
+        h1 {
+            font-size: 197%;
+        }
+        
+        h2 {
+            font-size: 167%;
+        }
+        
+        h3 {
+            font-size: 100%;
+            font-weight: bold;
+        }
+        
+        p, ol, ul {
+            line-height: 170%;
+            color: #ffffff;
+        }
+        
+        
+        ol {
+            margin-left: 0;
+            padding-left: 0;
+            list-style-position: inside;
+        }
+        
+        ul {
+            margin-left: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        ul li {
+            padding-left: 15px;
+            
+        
+        }
+        
+        blockquote {
+            margin: 0;
+            padding-left: 20px;
+            font-style: italic;
+        }
+        
+        
+        
+        a {
+            color: #ffffff;
+        }
+        
+        a:hover {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        img {
+            border: none;
+        }
+        
+        img.left {
+            float: left;
+            margin: 3px 15px 0 0;
+        }
+        
+        img.right {
+            float: right;
+            margin: 3px 0 0 15px;
+        }
+        
+        hr {
+            display: none;
+        }
+        
+        /* Header */
+        
+        #header {
+            
+            height: 235px;
+            margin: 0 auto;
+            background-color: #333333;
+            text-align: center;
+        }
+        
+        /* Logo */
+        
+        #logo {
+            height: 190px;
+        }
+        
+        #logo h1, #logo h2 {
+            text-align: center;
+        }
+        
+        #logo h1 {
+            padding-top: 40px;
+            font-size: 350%;
+        }
+        
+        #logo h2 {
+            font-size: 150%;
+        }
+        
+        #logo a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        /* Menu */
+        
+        #menu {
+            padding-top: 0;
+            background-color: #333333;
+        }
+        
+        #menu ul {
+            margin: 0;
+            padding: 10px 0 0 0;
+            list-style: none;
+            line-height: normal;
+            text-align: center;
+        }
+        
+        #menu li {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+        
+        #menu a {
+          color: #ffffff;
+          font-size: 1em;
+          text-decoration: none;
+          font-family: "Montserrat", sans-serif;
+          padding: 0 20px;
+          text-align: center;
+        }
+        
+        
+        #menu a:hover {
+            text-decoration: underline;
+        }
+        
+        #menu .active a {
+          color: #807d7d;
+          font-weight: bold;
+        }
+        
+        /* Page */
+        
+        #page {
+            
+            width: 730px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        
+        /* Content */
+        
+        #content {
+            float: inline-start;
+            width: 800px;
+            padding-top: 8px;
+        }
+        
+        
+        
+        .twocols .title {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #222222;;
+        }
+        
+        .twocols .col1, .twocols .col2 {
+            width: 190px;
+        }
+        
+        .twocols .col1 {
+            float: left;
+        }
+        
+        .twocols .col2 {
+            float: right;
+        }
+        
+        
+        
+        .twocols ul li {
+            padding-left: 0;
+        }
+        
+        /* Sidebar */
+        
+        #sidebar {
+            float: right;
+            width: 260px;
+        }
+        
+        .boxed {
+            margin: 0 0 20px 0;
+        }
+        
+        .boxed .title {
+            width: 250px;
+            height: 35px;
+            margin: 0;
+            padding: 10px 0 0 10px;
+            background: #222222  no-repeat;
+            font-size: 136%;
+            background-color:#333333;
+            text-align: center;
+        }
+        
+        .boxed .content {
+            padding: 20px;
+            border: 1px solid #333333;
+            border-top: none;
+        }
+        
+        .boxed h3 {
+            margin: 0;
+        }
+        
+        .boxed p, .boxed ul, .boxed ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            line-height: normal;
+        }
+        
+        
+        
+        .boxed ul li {
+            padding: 8px 0 8px 10px;
+        
+        }
+        
+        .boxed ul li.first {
+            border: none;
+        }
+        
+        /* Search */
+        
+        
+        #search form {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #search fieldset {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        
+        #search p {
+            float: left;
+            padding-top: 5px;
+            font-size: 85%;
+        }
+        
+        #searchinput {
+            width: 210px;
+            margin-bottom: 5px;
+        }
+        
+        #searchsubmit {
+            float: right;
+        }
+        
+        /* Footer */
+        
+        #footer {
+            height: 100px;
+            padding: 20px;
+            background-color:#222222;;
+             color: #ffffff;
+            border-top: 5px solid #222222;;
+        }
+        
+        #footer p {
+            margin: 0;
+            text-align: center;
+            line-height: normal;
+            font-size: 85%;
+            color: #FFFFFF;
+        }
+        
+        #footer a {
+            color: #FFFFFF;
+        }
+        .style5 {color: #222222;}
+        
+                .style5 {color: #222222;}
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <h1><a href="/">VEHICLE DAMAGE ESTIMATOR</a></h1>
+            <h2>Fast and Accurate Cost Estimations</h2>
+        </div>
+        <!-- Menu Section -->
+        <div id="menu">
+            <ul>
+                <li class="active"><a href="/">Home</a></li>
+                <li ><a href="/accounts/login">Log in</a></li>
+                <li><a href="/register">Not registered? Sign up</a></li>
+                
+            </ul>
+        </div>
+    </div>
+    
+
+
+    <div id="page">
+        <main>
+            <section>
+               
+                <h2>Welcome to Vehicle Damage Assessment</h2>
+                    <p>
+                Save money and time in the car insurance business with our sophisticated AI model. 
+                Our Machine Learning model quickly detects damage areas on a car, providing accurate cost estimates. 
+                Ideal for insurance claims, underwriting, and used car loans.
+                     </p>
+                    
+            </section>
+        </main>
+    </div>
+    <div id="footer">
+        <p>&copy; 2023 Vehicle Damage Estimator - Empowering Insurers and Customers</p> <!-- More descriptive -->
+    </div>
+</body>
+</html>

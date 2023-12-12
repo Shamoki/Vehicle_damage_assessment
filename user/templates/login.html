@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 13px;
+      background-color: #222222;
+      color: #ffffff;
+    }
+
+    .login-form {
+      border: 1px solid #222;
+      padding: 20px;
+      margin: 0 auto ;
+      width: 300px;
+    }
+
+    .login-form h2 {
+      text-align: center;
+    }
+
+    .login-form input {
+      font-size: 16px;
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px ;
+    }
+
+    .login-form button {
+      background-color: #333333;
+      color: #ffffff;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+    }
+    /* Header */
+        
+    #header {
+            
+            height: 235px;
+            margin: 0 auto;
+            background-color: #333333;
+            text-align: center;
+        }
+        /* Logo */
+        
+        #logo {
+            height: 190px;
+        }
+        
+        #logo h1, #logo h2 {
+            text-align: center;
+        }
+        
+        #logo h1 {
+            padding-top: 40px;
+            font-size: 350%;
+        }
+        
+        #logo h2 {
+            font-size: 150%;
+        }
+        
+        #logo a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        /* Menu */
+        
+        #menu {
+            padding-top: 0;
+            background-color: #333333;
+        }
+        
+        #menu ul {
+            margin: 0;
+            padding: 10px 0 0 0;
+            list-style: none;
+            line-height: normal;
+            text-align: center;
+        }
+        
+        #menu li {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+        
+        #menu a {
+          color: #ffffff;
+          font-size: 1em;
+          text-decoration: none;
+          font-family: "Montserrat", sans-serif;
+          padding: 0 20px;
+          text-align: center;
+        }
+        
+        
+        #menu a:hover {
+            text-decoration: underline;
+        }
+        
+        #menu .active a {
+          color: #807d7d;
+          font-weight: bold;
+        }
+        .separator {
+            height: 1px;
+            background-color: #ddd; 
+            margin: 20px 0;  /* Adds 20px of space above and below the separator */
+        }
+        
+        h1, h2, h3 {
+            margin: 0;
+            font-weight: normal;
+            color: #ffffff;
+        }
+        
+        h1 {
+            font-size: 197%;
+        }
+        
+        h2 {
+            font-size: 167%;
+        }
+        
+        h3 {
+            font-size: 100%;
+            font-weight: bold;
+        }
+        
+        p, ol, ul {
+            line-height: 170%;
+            color: #ffffff;
+        }
+        
+        
+        ol {
+            margin-left: 0;
+            padding-left: 0;
+            list-style-position: inside;
+        }
+        
+        ul {
+            margin-left: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        ul li {
+            padding-left: 15px;
+            
+        
+        }
+        
+        blockquote {
+            margin: 0;
+            padding-left: 20px;
+            font-style: italic;
+        }
+        
+        
+        
+        a {
+            color: #ffffff;
+        }
+        
+        a:hover {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+  </style>
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <h1><a href="/">VEHICLE DAMAGE ESTIMATOR</a></h1>
+            <h2>Fast and Accurate Cost Estimations</h2>
+        </div>
+        <!-- Menu Section -->
+        <div id="menu">
+            <ul>
+                <li ><a href="/">Home</a></li>
+                <li class="active"><a href="/accounts/login">Log in</a></li>
+                <li><a href="/register">Not registered? Sign up</a></li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="login-form">
+        <h2>Login</h2>
+
+        <form action="/accounts/login/" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      
+      <div>
+         <button type="submit">Login</button>
+        <!--<input type="reset" value="Reset">-->
+      </div>
+        </form>
+    </div>
+</body>
+</html>

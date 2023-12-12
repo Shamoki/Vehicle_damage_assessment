@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}  {# Extends the base layout found in base_generic.html #}
+
+{% block content %}  {# Everything inside is what's going to be inserted into the {% block content %}...{% endblock %} in base_generic.html #}
+
+<!--<h1>Profile Page</h1>-->
+
+<div class="profile-content">
+    <h2>User Information:</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>  {# Display the username of the logged-in user #}
+    <p><strong>Email:</strong> {{ user.email }}</p>  {# Display the email of the logged-in user #}
+    <p><strong>Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>  {# Display the full name of the logged-in user #}
+    <p><strong>Date Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</p>  {# Display the date when the user joined, formatted in a more readable way #}
+    
+    {% if user_profile %}
+    <h2>Profile Information:</h2>
+    <!-- Assume user_profile is a context variable containing additional user profile information -->
+    <p><strong>Location:</strong> {{ user_profile.location }}</p>  {# Display the location if available in the user's extended profile #}
+    <p><strong>Biography:</strong> {{ user_profile.bio }}</p>  {# Display the biography if available in the user's extended profile #}
+    {% endif %}
+
+    {% if assessments_list %}
+    <h2>Your Assessments:</h2>
+    <ul>
+        {% for assessment in assessments_list %}  {# Loop through the assessments made by the user, assuming assessments_list is passed from the view #}
+        <li>
+            <p><strong>Assessment ID:</strong> {{ assessment.id }}</p>  {# Display the Assessment ID #}
+            <p><strong>Date Submitted:</strong> {{ assessment.date_submitted|date:"F d, Y" }}</p>  {# Display the date the assessment was submitted, formatted in a more readable way #}
+            <p><strong>Status:</strong> {{ assessment.status }}</p>  {# Display the status of the assessment #}
+            <a href="{% url 'assessment_detail' assessment.id %}">View Details</a>  {# This link would direct to a detailed view of the assessment. Ensure 'assessment_detail' is defined in your urls.py and accepts an assessment ID #}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>You have not submitted any assessments.</p>  {# Message displayed if the user hasn't submitted any assessments #}
+    {% endif %}
+</div>
+
+{% endblock %}

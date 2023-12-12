@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Welcome, {{ user.username }}!</h1>
+
+<!-- Dashboard navigation -->
+<div class="dashboard-nav">
+    <ul>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/submit_report">Submit New Vehicle Report</a></li>
+        <li><a href="/test_report">View Past Vehicle Reports</a></li>
+    </ul>
+</div>
+
+<!-- Summary of the user's activity -->
+<div class="dashboard-content">
+    <h2>Your Recent Vehicle Reports</h2>
+    
+    {% if recent_reports %} {# Check if there are any recent reports #}
+        <ul>
+        {% for report in recent_reports %} {# Loop through each of the user's recent vehicle reports #}
+            <li>
+                <strong>Report Title:</strong> {{ report.title }}<br> {# Display the title of the report #}
+                <strong>Date Submitted:</strong> {{ report.date_submitted|date:"M d, Y" }}<br> {# Display the date the report was submitted #}
+                <strong>Vehicle:</strong> {{ report.vehicle_make }} {{ report.vehicle_model }} {{ report.vehicle_year }}<br> {# Display the vehicle information #}
+                <a href="{% url 'report_detail' report.pk %}">View Details</a> {# Link to the detailed view of this specific report. Assumes you have a URL pattern named 'report_detail' that takes a report's primary key (pk) #}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have not submitted any vehicle reports recently.</p> {# Message displayed if the user has no recent reports #}
+    {% endif %}
+</div>
+
+{% endblock %}
